@@ -9,6 +9,6 @@ ___
 ___
 ### Progression
 
-[1]: /materials.md/
+[1]: /docs/materials.md/
 [2]: /docs/steps.md
 [3]: /progression.md
