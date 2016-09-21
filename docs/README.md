@@ -10,5 +10,5 @@ ___
 ### Progression
 
 [1]: /docs/materials.md/
-[2]: /docs/steps.md
-[3]: /progression.md
+[2]: /docs/steps/README.md
+[3]: /progression/README.md
