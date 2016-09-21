@@ -14,8 +14,9 @@
 * [Gilles Merletti][4]
 
 
-[1]: https://github.com/djavrell/grow-flower/tree/master/docs
+<!-- [1]: https://github.com/djavrell/grow-flower/tree/master/docs -->
+[1]: /docs/
 [2]: https://github.com/djavrell/grow-flower/tree/master/src
-[3]: https://github.com/djavrell 
+[3]: https://github.com/djavrell
 [4]: https://github.com/merle-geai
 [5]: https://github.com/djavrell/grow-flower/tree/master/schema
