@@ -16,10 +16,13 @@ The first step is to collect the maximum of data from sensors and then display t
 
 ###### summary
 * [Docs] [1]
+	
 	> all the documentaion about the project
 * [Src] [2]
+	
 	> All the sources about the project
 * [Schema] [5]
+	
 	> All the schema about the project
 
 # Authors
