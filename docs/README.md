@@ -13,5 +13,5 @@ ___
 
 [1]: /docs/materials.md/
 [2]: /docs/steps/README.md
-[3]: /progression/README.md
-[4]: /progression/Ticket_1.md
+[3]: /docs/progression/README.md
+[4]: /docs/progression/Ticket_1.md
