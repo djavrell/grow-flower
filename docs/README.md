@@ -9,9 +9,9 @@ ___
 ___
 ### Progression
 
-* [Ticket 1][4]
+* [Ticket 2][4]
 
 [1]: /docs/materials.md/
 [2]: /docs/steps/README.md
 [3]: /docs/progression/README.md
-[4]: /docs/progression/Ticket_1.md
+[4]: /docs/progression/Ticket_2.md
