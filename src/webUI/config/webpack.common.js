@@ -73,7 +73,7 @@ module.exports = {
 	    { from: '**/*.html',                                          to: 'app/component', context: 'src/app/component' },
 	    { from: '**/*.css',                                           to: 'app/component', context: 'src/app/component' },
 	    { from: 'src/assets',                                         to: 'assets' },
-      { from: 'node_modules/chart.js/dist/Chart.min.js',            to: 'assets/static' }
+      { from: 'node_modules/chart.js/dist/Chart.js',            to: 'assets/static' }
       // { from: 'node_modules/chart.js/src/chart.js',}
     ]),
     new HtmlWebpackPlugin({

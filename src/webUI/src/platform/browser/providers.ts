@@ -10,11 +10,6 @@ import {
 import {
 }                              from '@angular/common';
 
-// Angular 2 Http
-import {
-	Http
-}                              from '@angular/http';
-
 // Angular 2 Router
 //import {
 //		ROUTER_PROVIDERS

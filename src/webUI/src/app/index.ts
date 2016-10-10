@@ -5,5 +5,6 @@
 /**
  * export module
  */
-export { AppModule } from './app.module';
-export { COMPONENT } from './components';
+export { AppModule }      from './app.module';
+export { COMPONENT }      from './components';
+export { GraphComponent } from './shared';

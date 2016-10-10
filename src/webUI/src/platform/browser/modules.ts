@@ -4,11 +4,11 @@
 
 import {
   RouterModule
-} from '@angular/router';
+}                   from '@angular/router';
 
 import {
   HttpModule
-} from '@angular/http';
+}                   from '@angular/http';
 
 
 const ANGULAR_MODULES= [
@@ -17,4 +17,5 @@ const ANGULAR_MODULES= [
 ];
 
 export const MODULES = [
+  ANGULAR_MODULES
 ];

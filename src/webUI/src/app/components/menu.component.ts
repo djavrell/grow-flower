@@ -14,7 +14,7 @@ import { Component }    from '@angular/core';
   styles  : [`
     .menu {
         height: 60px;
-        background: rgba(0, 0, 0, 0.6);
+        background: rgba(24, 60, 7, 1);
         padding: 0;
         margin: 0;
     }

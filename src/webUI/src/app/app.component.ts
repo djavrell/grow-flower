@@ -8,6 +8,7 @@ import { Component }    from '@angular/core';
   selector  : 'ia-app',
   template  : `
   <gf-menu></gf-menu>
+  <gf-content></gf-content>
 `,
   styles    : [`
   `],
