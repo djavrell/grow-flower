@@ -5,11 +5,16 @@
 * go to in the [webUI][UI-dir] folder and execute the following commands
 
     > to install the project
-    > > if you want to run the project in dev mode
-    > npm run server:dev:hmr
-    > > if you want to run the project in prod mode
-    > npm run build:prod
-    > npm run server:prod
+    >
+    > * if you want to run the project in dev mode
+    >
+    > > * npm run server:dev:hmr
+    >
+    > * if you want to run the project in prod mode
+    >
+    > > * npm run build:prod
+    >
+    > > * npm run server:prod
 
 * in an other terminal, go to the folder [server-front][srv-dir] and run the following command
 
