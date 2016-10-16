@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 
 const data = [
   {
-    name: 'captor 1',
+    name: 'station 1',
     data: [
       {
         label: 'soil',
@@ -27,7 +27,7 @@ const data = [
     ]
   },
   {
-    name: 'captor 2',
+    name: 'station 2',
     data: [
       {
         label: 'soil',
@@ -44,7 +44,7 @@ const data = [
     ]
   },
   {
-    name: 'captor 3',
+    name: 'station 3',
     data: [
       {
         label: 'soil',
