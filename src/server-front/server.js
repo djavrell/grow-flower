@@ -7,22 +7,64 @@ app.use((req, res, next) => {
   next();
 });
 
+
+const data = [
+  {
+    name: 'captor 1',
+    data: [
+      {
+        label: 'soil',
+        data : [0, 1, 10, 3, 4, 5, 6, 7, 8, 9]
+      },
+      {
+        label: 'temp',
+        data : [0, 1, 2, 3, 10, 5, 6, 7, 8, 9]
+      },
+      {
+        label: 'light',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 10, 9]
+      },
+    ]
+  },
+  {
+    name: 'captor 2',
+    data: [
+      {
+        label: 'soil',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      },
+      {
+        label: 'temp',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      },
+      {
+        label: 'light',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      },
+    ]
+  },
+  {
+    name: 'captor 3',
+    data: [
+      {
+        label: 'soil',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      },
+      {
+        label: 'temp',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      },
+      {
+        label: 'light',
+        data : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+      },
+    ]
+  },
+];
+
 app.get('/data', (req, res) => {
   console.log('caught a get on /data');
-  res.send({
-    'name': 'light',
-    'data': {
-        label: 'light',
-        data: [
-            60,
-            50,
-            40,
-            30,
-            20,
-            10
-        ]
-    }
-  });
+  res.send(data);
 });
 
 app.get('/', (req, res) => {
