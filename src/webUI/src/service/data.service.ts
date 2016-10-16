@@ -8,12 +8,13 @@ import {
   Headers,
   Response
 }           from '@angular/http';
+import { Observable } from "rxjs";
 
 @Injectable()
 export class DataService {
   constructor(private _http: Http) {}
 
-  getData() {
+  getData(): Observable<any> {
     let header = new Headers();
 
     return this._http.get('http://localhost:3000/data', {headers: header})
