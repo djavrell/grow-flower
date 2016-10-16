@@ -9,6 +9,7 @@ import {
 }                     from '@angular/core';
 
 import { DataModel } from '../../model/data.model';
+import { value } from '../../model/data.model';
 
 const CSS = `
 .chart-legend,
@@ -63,20 +64,17 @@ const CSS = `
 
 const HTML = `
 <div>
-  <!--<base-chart [datasets]="data"-->
-              <!--[options]="Options"-->
-              <!--[colors]="Colors"-->
-              <!--[chartType]="Type"-->
-              <!--[labels]="Labels"-->
-              <!--[legend]="Legend"-->
-              <!--(chartHover)="chartHovered($event)"-->
-              <!--(chartClick)="chartClicked($event)"-->
-  <!--&gt;</base-chart>-->
-<pre>
-{{data | json}}
-
-{{Labels}}
-</pre>
+    <div>{{data.name}}</div>
+    <base-chart
+                [datasets]="value"
+                [options]="Options"
+                [colors]="Colors"
+                [chartType]="Type"
+                [labels]="Labels"
+                [legend]="Legend"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"
+    ></base-chart>
 </div>
 `;
 
@@ -88,15 +86,34 @@ const HTML = `
 export class GraphComponent implements OnInit {
   @Input() data: DataModel;
 
+  value: value[] = [];
+  //@Input() data: Array<any>;
+  //
+  //value: Array<any> = [];
+
+  public Labels: Array<any> = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
   public Options:any = {
     animation: false,
     responsive: true
   };
 
-  // public Labels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public Labels:Array<any> = [];
-
   public Colors:Array<any> = [
+    { // grey
+      backgroundColor: 'rgba(148,159,177,0.2)',
+      borderColor: 'rgba(148,159,177,1)',
+      pointBackgroundColor: 'rgba(148,159,177,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
+    },
+    { // dark grey
+      backgroundColor: 'rgba(77,83,96,0.2)',
+      borderColor: 'rgba(77,83,96,1)',
+      pointBackgroundColor: 'rgba(77,83,96,1)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(77,83,96,1)'
+    },
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
@@ -111,10 +128,7 @@ export class GraphComponent implements OnInit {
   public Type:string = 'line';
 
   ngOnInit() {
-    //console.log(this.data.length);
-    for (let i: number = 0; i <= 60; i += 10) {
-      this.Labels.push(i.toString());
-    }
+    this.value = this.data.data;
   }
 
   public chartClicked(e:any):void {
@@ -123,5 +137,13 @@ export class GraphComponent implements OnInit {
 
   public chartHovered(e:any):void {
     console.log(e);
+  }
+
+  getLabels(len: number) {
+    let tab: String[] = [];
+    for (let n: number = 0; n < len; n++) {
+      tab.push(n.toString());
+    }
+    return tab;
   }
 }

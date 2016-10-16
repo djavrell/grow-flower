@@ -18,11 +18,10 @@ export class DataService {
 
     return this._http.get('http://localhost:3000/data', {headers: header})
       .map(this.extractData);
-      //.map(res => res.json());
   }
 
   extractData(res: Response) {
     let body = res.json();
-    return body.data || { };
+    return body || { };
   }
 }

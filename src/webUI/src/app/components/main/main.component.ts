@@ -14,11 +14,11 @@ import { DataModel } from '../../../model/data.model';
   styles: [],
   template: `
 <div class="row" >
-  <div class="col-md-6" >
-    <gf-graph
-      [data]="datas"
-    ></gf-graph>
-  </div>  
+    <div *ngFor="let item of data" class="col-md-6" >
+      <gf-graph
+        [data]="item"
+       ></gf-graph>
+    </div>
 </div>
 
 <button (click)="fetch_data()" >fetch_data</button>
@@ -30,7 +30,7 @@ import { DataModel } from '../../../model/data.model';
 export class MainComponent implements OnInit {
   constructor(private fd: DataService) {}
 
-  datas: DataModel[] = [];
+  data: DataModel[] = [];
 
   public lineChartData:Array<any> = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
@@ -39,8 +39,7 @@ export class MainComponent implements OnInit {
   ];
 
   ngOnInit() {
-  //  this.fetch_data();
-    //console.log(this.data);
+    this.fetch_data();
   }
 
   fetch_data(): void {
@@ -48,10 +47,7 @@ export class MainComponent implements OnInit {
       .getData()
       .subscribe(
         data => {
-          this.datas = [];
-          this.datas.push(data);
-          this.datas.push(data);
-          this.datas.push(data);
+          this.data = data;
         },
         err => console.log('error fetching data')
       );
