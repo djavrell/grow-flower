@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- base url -->
+    <base href="<%= webpackConfig.metadata.baseUrl %>">
+    <title><%= webpackConfig.metadata.title %></title>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <script src="assets/static/css/Chart.js"></script>
+    <link rel="stylesheet" href="assets/static/css/bootstrap.min.css">
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+
+  </head>
+
+  <body>
+	  <ia-app>Loading...</ia-app>
+	  <% if (webpackConfig.metadata.ENV === 'development') { %>
+      <!-- Webpack Dev Server reload -->
+      <script src="/webpack-dev-server.js"></script>
+    <% } %>
+  </body>
+</html>
