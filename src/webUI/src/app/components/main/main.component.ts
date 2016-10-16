@@ -13,13 +13,15 @@ import { DataModel } from '../../../model/data.model';
   selector: 'gf-main',
   styles: [],
   template: `
-<gf-graph
-  [data]="lineChartData"
-></gf-graph>
+<div class="row" >
+  <div class="col-md-6" >
+    <gf-graph
+      [data]="datas"
+    ></gf-graph>
+  </div>  
+</div>
+
 <button (click)="fetch_data()" >fetch_data</button>
-<pre>
-{{data | json}}
-</pre>
 `,
   providers: [
     DataService
@@ -28,7 +30,7 @@ import { DataModel } from '../../../model/data.model';
 export class MainComponent implements OnInit {
   constructor(private fd: DataService) {}
 
-  data: DataModel[] = [];
+  datas: DataModel[] = [];
 
   public lineChartData:Array<any> = [
     {data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A'},
@@ -37,7 +39,8 @@ export class MainComponent implements OnInit {
   ];
 
   ngOnInit() {
-    this.fetch_data();
+  //  this.fetch_data();
+    //console.log(this.data);
   }
 
   fetch_data(): void {
@@ -45,19 +48,12 @@ export class MainComponent implements OnInit {
       .getData()
       .subscribe(
         data => {
-          this.data.pop();
-          this.data.push(data);
+          this.datas = [];
+          this.datas.push(data);
+          this.datas.push(data);
+          this.datas.push(data);
         },
         err => console.log('error fetching data')
       );
   }
-
-  public chartClicked(e:any):void {
-    console.log(e);
-  }
-
-  public chartHovered(e:any):void {
-    console.log(e);
-  }
-
 }

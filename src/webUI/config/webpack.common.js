@@ -52,6 +52,7 @@ module.exports = {
           helpers.root('node_modules/rxjs'),
 	        helpers.root('node_modules/zone.js'),
           helpers.root('node_modules/@angular'),
+          helpers.root('node_modules/@ng-bootstrap')
         ]
       }
     ],
@@ -73,8 +74,8 @@ module.exports = {
 	    { from: '**/*.html',                                          to: 'app/component', context: 'src/app/component' },
 	    { from: '**/*.css',                                           to: 'app/component', context: 'src/app/component' },
 	    { from: 'src/assets',                                         to: 'assets' },
-      { from: 'node_modules/chart.js/dist/Chart.js',            to: 'assets/static' }
-      // { from: 'node_modules/chart.js/src/chart.js',}
+      { from: 'node_modules/chart.js/dist/Chart.js',                to: 'assets/static/css' },
+      { from: 'node_modules/bootstrap/dist/css/bootstrap.min.css',  to: 'assets/static/css' }
     ]),
     new HtmlWebpackPlugin({
       template: 'src/index.html',

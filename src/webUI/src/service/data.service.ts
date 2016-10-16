@@ -5,7 +5,8 @@
 import { Injectable }     from '@angular/core';
 import {
   Http,
-  Headers
+  Headers,
+  Response
 }           from '@angular/http';
 
 @Injectable()
@@ -16,6 +17,12 @@ export class DataService {
     let header = new Headers();
 
     return this._http.get('http://localhost:3000/data', {headers: header})
-      .map(res => res.json());
+      .map(this.extractData);
+      //.map(res => res.json());
+  }
+
+  extractData(res: Response) {
+    let body = res.json();
+    return body.data || { };
   }
 }

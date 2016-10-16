@@ -10,7 +10,6 @@ import {
   HttpModule
 }                   from '@angular/http';
 
-
 const ANGULAR_MODULES= [
   RouterModule,
   HttpModule

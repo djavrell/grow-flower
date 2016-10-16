@@ -11,9 +11,8 @@ import {
 }                              from '@angular/common';
 
 // Angular 2 Router
-//import {
-//		ROUTER_PROVIDERS
-//}                             from '@angular/router';
+import {
+}                             from '@angular/router';
 
 // Other
 const OTHER = [

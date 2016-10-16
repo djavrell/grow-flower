@@ -4,11 +4,20 @@
 
 import {
   Component,
-  Input
-}    from '@angular/core';
+  Input,
+  OnInit
+}                     from '@angular/core';
+
+import { DataModel } from '../../model/data.model';
 
 const CSS = `
-.chart-legend, .bar-legend, .line-legend, .pie-legend, .radar-legend, .polararea-legend, .doughnut-legend {
+.chart-legend,
+.bar-legend,
+.line-legend,
+.pie-legend,
+.radar-legend,
+.polararea-legend,
+.doughnut-legend {
   list-style-type: none;
   margin-top: 5px;
   text-align: center;
@@ -17,7 +26,13 @@ const CSS = `
   padding-left: 0
 }
 
-.chart-legend li, .bar-legend li, .line-legend li, .pie-legend li, .radar-legend li, .polararea-legend li, .doughnut-legend li {
+.chart-legend li,
+.bar-legend li,
+.line-legend li,
+.pie-legend li,
+.radar-legend li,
+.polararea-legend li,
+.doughnut-legend li {
   display: inline-block;
   white-space: nowrap;
   position: relative;
@@ -28,7 +43,13 @@ const CSS = `
   cursor: default
 }
 
-.chart-legend li span, .bar-legend li span, .line-legend li span, .pie-legend li span, .radar-legend li span, .polararea-legend li span, .doughnut-legend li span {
+.chart-legend li span, 
+.bar-legend li span, 
+.line-legend li span, 
+.pie-legend li span, 
+.radar-legend li span, 
+.polararea-legend li span, 
+.doughnut-legend li span {
   display: block;
   position: absolute;
   left: 0;
@@ -41,50 +62,41 @@ const CSS = `
 `;
 
 const HTML = `
-<base-chart [datasets]="data"
-            [options]="lineChartOptions"
-            [colors]="lineChartColors"
-            [chartType]="lineChartType"
-            [labels]="lineChartLabels"
-            [legend]="lineChartLegend"
-            (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)"
-></base-chart>
-`
+<div>
+  <!--<base-chart [datasets]="data"-->
+              <!--[options]="Options"-->
+              <!--[colors]="Colors"-->
+              <!--[chartType]="Type"-->
+              <!--[labels]="Labels"-->
+              <!--[legend]="Legend"-->
+              <!--(chartHover)="chartHovered($event)"-->
+              <!--(chartClick)="chartClicked($event)"-->
+  <!--&gt;</base-chart>-->
+<pre>
+{{data | json}}
+
+{{Labels}}
+</pre>
+</div>
+`;
 
 @Component({
   selector: 'gf-graph',
   template: HTML,
   styles  : [CSS]
 })
-export class GraphComponent {
-  @Input() data: any;
+export class GraphComponent implements OnInit {
+  @Input() data: DataModel;
 
-  public lineChartOptions:any = {
+  public Options:any = {
     animation: false,
     responsive: true
   };
 
-  // public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
-  public lineChartLabels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  // public Labels:Array<any> = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+  public Labels:Array<any> = [];
 
-  public lineChartColors:Array<any> = [
-    { // grey
-      backgroundColor: 'rgba(148,159,177,0.2)',
-      borderColor: 'rgba(148,159,177,1)',
-      pointBackgroundColor: 'rgba(148,159,177,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(148,159,177,0.8)'
-    },
-    { // dark grey
-      backgroundColor: 'rgba(77,83,96,0.2)',
-      borderColor: 'rgba(77,83,96,1)',
-      pointBackgroundColor: 'rgba(77,83,96,1)',
-      pointBorderColor: '#fff',
-      pointHoverBackgroundColor: '#fff',
-      pointHoverBorderColor: 'rgba(77,83,96,1)'
-    },
+  public Colors:Array<any> = [
     { // grey
       backgroundColor: 'rgba(148,159,177,0.2)',
       borderColor: 'rgba(148,159,177,1)',
@@ -95,6 +107,21 @@ export class GraphComponent {
     }
   ];
 
-  public lineChartLegend:boolean = true;
-  public lineChartType:string = 'line';
+  public Legend:boolean = true;
+  public Type:string = 'line';
+
+  ngOnInit() {
+    //console.log(this.data.length);
+    for (let i: number = 0; i <= 60; i += 10) {
+      this.Labels.push(i.toString());
+    }
+  }
+
+  public chartClicked(e:any):void {
+    console.log(e);
+  }
+
+  public chartHovered(e:any):void {
+    console.log(e);
+  }
 }
