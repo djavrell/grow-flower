@@ -16,6 +16,7 @@ import { DataModel }    from '../../../model/data.model';
   styles: [],
   template: `
 <div class="row" >
+<!--<pre>{{data | json}}</pre>-->
     <div *ngFor="let item of data" class="col-md-6" >
       <gf-graph
         [data]="item"
