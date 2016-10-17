@@ -1,4 +1,5 @@
 const fetch = require('node-fetch');
+const rx = require('rx');
 const _ = require('lodash');
 const express = require('express');
 const config = require('./config');
@@ -42,6 +43,7 @@ app.use(Logger);
  */
 
 const getRandom = (min, max, pre = 100) => Math.floor((Math.random() * (max - min) + min) * pre) / pre;
+
 const update    = (obj, label, val) => addItem(_.find(obj, (o) => o.label === label).data, val);
 const addItem   = (tab, item) => {
   tab.shift();
@@ -49,22 +51,28 @@ const addItem   = (tab, item) => {
   return tab;
 };
 
+const fetching = () => {
+  fetch('http://localhost:3000/read')
+    .then((res) => res.json())
+    .then(((body) => {
+      update(c1[0].data, captor3, body[0]); // humidity
+      update(c1[0].data, captor2, body[1]); // temp
+      update(c1[0].data, captor1, body[2]); // light
+    }))
+    .catch((err) => console.log([]));
+};
+
+rx.Observable
+  .interval(1000)
+  .map(() => fetching())
+  .subscribe();
+
 /**
  * routing
  */
 
-
 app.get('/data', (req, res) => {
-  fetch('http://localhost:3000/read')
-    .then((res) => res.json())
-    .then(((body) => {
-      update(c1[0].data, captor1, body[0]);
-      update(c1[0].data, captor2, body[1]);
-      update(c1[0].data, captor3, body[2]);
-
-      res.send(c1);
-    }))
-    .catch((err) => console.log([]));
+  res.send(c1);
 });
 
 app.get('/read', (req, res) => {
