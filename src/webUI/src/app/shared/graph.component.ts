@@ -65,8 +65,7 @@ const CSS = `
 const HTML = `
 <div>
     <div>{{data.name}}</div>
-    <base-chart
-                [datasets]="value"
+    <base-chart [datasets]="value"
                 [options]="Options"
                 [colors]="Colors"
                 [chartType]="Type"
@@ -75,6 +74,7 @@ const HTML = `
                 (chartHover)="chartHovered($event)"
                 (chartClick)="chartClicked($event)"
     ></base-chart>
+<!--<pre>{{value | json}}</pre>-->
 </div>
 `;
 
